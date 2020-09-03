@@ -63,7 +63,7 @@ void create_thread(int thread_id, LPTHREAD_START_ROUTINE func) {
     }
 }
 
-void interval_initializer(int inum) { // функция запуска интервалов (тут еще надо чет переделать с орг. сем)
+void interval_initializer(int inum) {
     int len;
     switch (inum) {
         case 0: {
@@ -232,5 +232,9 @@ int lab3_init() {
     CloseHandle(semE);
     CloseHandle(semF);
     CloseHandle(semH);
+    CloseHandle(intervalDone);
+    for(int i = 0; i < NUMBER_OF_INTERVAL; i++) {
+        CloseHandle(interval[i]);
+    }
     return 0;
 }
